@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0 auto;
+    max-width: 114rem;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+
+    background: url("/assets/BG.png") no-repeat 0 0;;
+    background-size: cover;
+}
