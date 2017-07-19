@@ -1,0 +1,43 @@
+
+nav {
+    /*background-color: rgba(0, 0, 0, .25);*/
+    overflow: hidden;
+    position: fixed;
+    width: 70%;
+    margin: 0 auto;
+    vertical-align: bottom;
+    line-height: 1em;
+    text-align: center;
+    left: 0px;
+    right: 0px;
+}
+
+nav ul {
+    list-style: none;
+    float: right;
+}
+
+nav ul li {
+    display: table-cell;
+    float: left;
+    vertical-align: middle;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 17px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+#logo {
+    width: 170px;
+    height: auto;
+    margin: 20px;
+    float: left;
+    /* REMOVE THIS */
+    -webkit-filter: invert(100%);
+}
+
+
