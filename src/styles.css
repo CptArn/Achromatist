@@ -13,8 +13,9 @@ html, body, .image { height: 100%; }
 
 .main {
      background: url("/assets/BG.png") no-repeat center center;
-  /* background-color: slategrey;  */
-    background-size: cover;
+  /* background-color: slategrey;  
+    background-size: cover;*/
+    background-size: 100%;
     width:100%;
     height: 100%; 
 }
@@ -177,4 +178,12 @@ background: linear-gradient(
 
 .inline-block {
     display: inline-block;
+}
+
+
+/* GENERAL */
+.slash {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-right: .5rem;
 }

@@ -1,21 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { NgModule } from '@angular/core';
+
+import { Ng2PageTransitionModule } from 'ng2-page-transition';
+import { routes } from './app.router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-import { OwlModule } from 'ng2-owl-carousel';
+import { PhotographyComponent } from './photography/photography.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PhotographyComponent
   ],
   imports: [
     BrowserModule,
-    OwlModule
+    routes,
+    BrowserAnimationsModule,
+    Ng2PageTransitionModule
   ],
   providers: [],
-  bootstrap: [HomeComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
