@@ -1,7 +1,8 @@
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 
-import { slideInOutAnimation } from '../router.animations';
+import { slideInOutAnimation, slideToRight, slideToTop } from '../router.animations';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit {
   }
 
 
-  @HostListener("window:scroll", [])
+ /* @HostListener("window:scroll", [])
   onWindowScroll() {
     let number = this.document.body.scrollTop;
     console.log(number);
@@ -33,7 +34,7 @@ export class HomeComponent implements OnInit {
     } else if (this.navHide && number > 500) {
       this.navHide = false;
     }
-  }
+  } */
 
 
 }
