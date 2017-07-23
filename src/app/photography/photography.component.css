@@ -1,0 +1,60 @@
+.container {
+    background-color: white;
+    padding: 20px; 
+    margin-left: 2rem;
+}
+
+.top {
+    width: 100%;
+}
+
+.content {
+
+}
+
+.grid-container {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.grid-element {
+    width: 130px; /* 15% */
+    padding-bottom: 130px;
+    margin: 1.5%;
+}
+
+.grid-element .fa {
+    font-size: 5rem;
+    padding: 10%;
+}
+
+@media(max-width:544px){
+   .grid-element .fa {
+        font-size: 2rem;
+        padding: 10%;
+    }
+}
+
+.grid-element span {
+    color: white;
+}
+
+.grid-element-content {
+    position: absolute;
+    height: 80%;
+    width: 90%;
+    padding: 10% 5%;
+}
+
+.grid-element-content img {
+    width: auto;
+    height: auto;
+    max-height:90%;
+    max-width:100%;
+}
+
+.sub-content-item {
+    text-align: center;
+    width: 100%;
+    background-color: white;
+}
