@@ -1,24 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 
-import { slideInOutAnimation, slideToRight } from '../router.animations';
+import { slideInOutAnimation, fade } from '../router.animations';
 
 
 @Component({
   selector: 'app-photography',
   templateUrl: './photography.component.html',
   styleUrls: ['./photography.component.css'],
-  animations: [slideInOutAnimation],
-  host: { '[@slideInOutAnimation]': '' }
+  animations: [fade],
+  host: { '[@fade]': '' }
 })
 export class PhotographyComponent implements OnInit {
-
+  public my_Class = '';
   constructor() { }
 
   ngOnInit() {
-    console.log('PHOTOGRAPHY');
-    
+
+
   }
 
+  ngAfterContentChecked() {
+    let that = this;
+
+     setTimeout(function() {
+        that.my_Class = 'checked';
+    }, 100);
+  }
 
 
 }

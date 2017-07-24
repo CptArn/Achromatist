@@ -1,14 +1,14 @@
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 
-import { slideInOutAnimation, slideToRight, slideToTop } from '../router.animations';
+import { slideInOutAnimation, fade, slideToTop } from '../router.animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  animations: [slideInOutAnimation],
-  host: { '[@slideInOutAnimation]': '' }
+  animations: [fade],
+  host: { '[@fade]': '' }
 })
 export class HomeComponent implements OnInit {
   images: string[];

@@ -43,7 +43,7 @@ export const slideInOutAnimation =
             style({
                 // start with the content positioned off the right of the screen,
                 // -400% is required instead of -100% because the negative position adds to the width of the element
-                top: '-400%',
+                top: '-1000%',
  
                 // start with background opacity set to 0 (invisible)
   //              backgroundColor: 'rgba(0, 0, 0, 1)'
@@ -67,12 +67,12 @@ export const slideInOutAnimation =
                 top: '-100%',
  
                 // transition the background opacity to 0 to fade it out
-            backgroundColor: 'rgba(0, 0, 0, 1)'
+                backgroundColor: 'rgba(0, 0, 0, 1)'
             }))
         ])
     ]);
 
-export const slideToRight =  trigger('slideToRight', [
+export const fade =  trigger('fade', [
       state('*', style({
             // the view covers the whole screen with a semi tranparent background
          position: 'fixed',
@@ -80,15 +80,16 @@ export const slideToRight =  trigger('slideToRight', [
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.8)'
+            backgroundColor: '#FFF'
         })),
         transition('void => *', [
-            style({opacity: 0}),
+            style({opacity: 0, backgroundColor: '#FFF'}),
             animate('.7s ease-in-out', style({opacity: 1}))
         ]),
         transition('* => void', [
-            style({opacity: 1}),
-            animate('.4s ease-in-out', style({opacity: 0}))
+            style({opacity: 1, backgroundColor: '#FFF'}),
+            animate('.4s ease-in-out', style({opacity: 0})),
+        
         ])
     ]);
 

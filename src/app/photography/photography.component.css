@@ -58,3 +58,41 @@
     width: 100%;
     background-color: white;
 }
+
+.slash {
+    border-top: 4px solid black;
+    width: 2em;
+    margin-right: 1.5em;
+    transform: rotate(-55deg);
+    float: left;
+}
+
+.turn {
+    transform: rotate(0deg);
+}
+
+
+.left-arrow {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  border-top: 4px solid #333;
+  border-right: 4px solid #333;
+  -moz-transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  margin-right: 1.5em;
+  float: left;
+}
+
+
+#slash line {
+    stroke-dasharray: 62px;
+    stroke-dashoffset: 62px;
+}
+
+#slash.checked line {
+    stroke-dashoffset: 0px;
+    transition: stroke-dashoffset 0.4s ease 0.2s;
+
+   /* transition: stroke-dashoffset 0.8s ease 0.2s, fill 0.2s ease;*/
+}
