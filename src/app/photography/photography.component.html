@@ -23,7 +23,11 @@
     </div>
     <div class="sub-content-item" >
         <div class="grid-container inline-block">
-            <a href="#" class="category grid-element">
+            <div *ngFor="let image of images">
+              <a href="#" class="category">
+                <img class="grid-element" src="{{image.url}}"/>
+              </a>
+         <!--   <a href="#" class="category grid-element">
             </a>
             <a href="#" class="category grid-element">
             
@@ -44,7 +48,10 @@
             </a>
             <a href="#"class="category grid-element">
 
-            </a>
+            </a> -->
+
+            </div>
+
       </div>
     </div>
   </section>

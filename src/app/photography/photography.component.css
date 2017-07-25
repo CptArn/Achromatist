@@ -9,18 +9,24 @@
 }
 
 .content {
-
+    padding: 0;
 }
 
 .grid-container {
-    width: 85%;
+   /* width: 85%; */
     margin: 0 auto;
+     -moz-column-width: 13em;
+ -webkit-column-width: 13em;
+ -moz-column-gap: 1em;
+ -webkit-column-gap: 1em; 
 }
 
 .grid-element {
-    width: 130px; /* 15% */
-    padding-bottom: 130px;
+    width: 100%; /* 15% */
+    padding-bottom: 0px;
     margin: 1.5%;
+     display: inline-block; 
+    
 }
 
 .grid-element .fa {
@@ -95,4 +101,16 @@
     transition: stroke-dashoffset 0.4s ease 0.2s;
 
    /* transition: stroke-dashoffset 0.8s ease 0.2s, fill 0.2s ease;*/
+}
+
+app-photography {
+    position: initial !important;
+}
+
+
+
+section {
+ display: inline-block;
+ padding:  1rem;
+ background: none;
 }
