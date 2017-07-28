@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 import { PhotographyComponent } from './photography/photography.component';
+import { LightboxModule } from 'angular2-lightbox';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { PhotographyComponent } from './photography/photography.component';
     BrowserModule,
     routes,
     BrowserAnimationsModule,
-    Ng2PageTransitionModule
+    Ng2PageTransitionModule,
+    LightboxModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

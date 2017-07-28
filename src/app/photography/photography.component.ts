@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import { slideInOutAnimation, fade } from '../router.animations';
 
+import { Lightbox } from 'angular2-lightbox';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+import { Renderer } from '@angular/core';
 
 @Component({
   selector: 'app-photography',
@@ -13,19 +17,26 @@ import { slideInOutAnimation, fade } from '../router.animations';
 export class PhotographyComponent implements OnInit {
   public my_Class = '';
   public images: any = [
-      {id: 1, category: "35mm", type: "b&w", url: "assets/gallery/1.jpg"},
-      {id: 2, category: "35mm", type: "b&w", url: "assets/gallery/2.jpg"},
-      {id: 3, category: "35mm", type: "b&w", url: "assets/gallery/3.jpg"},
-      {id: 4, category: "35mm", type: "b&w", url: "assets/gallery/4.jpg"},
-      {id: 5, category: "35mm", type: "b&w", url: "assets/gallery/5.jpg"},
-      {id: 6, category: "35mm", type: "b&w", url: "assets/gallery/6.jpg"},
-      {id: 7, category: "35mm", type: "b&w", url: "assets/gallery/7.jpg"},
-      {id: 8, category: "35mm", type: "b&w", url: "assets/gallery/8.jpg"},
-      {id: 9, category: "35mm", type: "b&w", url: "assets/gallery/9.jpg"},
+      {id: 1, category: "35mm", type: "b&w", src: "assets/gallery/1.jpg", thumb: "assets/gallery/1.jpg"},
+      {id: 2, category: "35mm", type: "b&w", src: "assets/gallery/2.jpg"},
+      {id: 3, category: "35mm", type: "b&w", src: "assets/gallery/3.jpg"},
+      {id: 4, category: "35mm", type: "b&w", src: "assets/gallery/4.jpg"},
+      {id: 5, category: "35mm", type: "b&w", src: "assets/gallery/5.jpg"},
+      {id: 6, category: "35mm", type: "b&w", src: "assets/gallery/6.jpg"},
+      {id: 7, category: "35mm", type: "b&w", src: "assets/gallery/7.jpg"},
+      {id: 8, category: "35mm", type: "b&w", src: "assets/gallery/8.jpg"},
+      {id: 9, category: "35mm", type: "b&w", src: "assets/gallery/9.jpg"},
   ];
+  public menuActive: boolean = false;
+  public menuToggleState: string = '';
+  public galleryActive: boolean = false;
+  public image: object = {src: 'assets/gallery/2.jpg'};
+
+  public imageIndex: number = 0;
 
 
-  constructor() { }
+  constructor(private lightbox: Lightbox, private pagination: NgxPaginationModule, private renderer: Renderer) {
+   }
 
 
 
@@ -43,5 +54,56 @@ export class PhotographyComponent implements OnInit {
     }, 100);
   }
 
+ /* open(index: number):void {
+      this.lightbox.open(this.images, index, { wrapAround: true, showImageNumberLabel: true });
+  } */
+
+  toggleNav(e) {
+    e.preventDefault();
+    console.log('toggle menu');
+    if(this.menuActive) {
+      this.menuActive = false;
+      this.menuToggleState = '';
+    } else {
+      this.menuActive = true;
+      this.menuToggleState = 'open';
+    } 
+
+  }
+
+  closeNav() {
+    this.menuActive = false;
+  }
+
+  expandGallery() {
+    console.log('gallery');
+    
+    this.galleryActive = !this.galleryActive;
+    this.image = this.images[this.imageIndex];
+  }
+
+  open(index: number):void {
+    this.galleryActive = true;
+    this.image = this.images[index];
+
+  }
+
+  nextImage() {
+     if(this.imageIndex < (this.images.length - 1)) {
+      this.imageIndex++;
+    } else {
+      this.imageIndex = 0;
+    }
+    this.image = this.images[this.imageIndex];
+  }
+
+  previousImage() {
+    if(this.imageIndex > 0) {
+      this.imageIndex--;
+    } else {
+      this.imageIndex = (this.images.length - 1);
+    }
+    this.image = this.images[this.imageIndex];
+  }
 
 }

@@ -1,4 +1,6 @@
-<section class="container">
+<section class="page">
+
+
   <div class="top">
     <!--   <div class="left-arrow"></div>
      <div class="slash"></div> -->
@@ -15,18 +17,33 @@
           </svg>
       </div>
 
-    <div><h1 style="padding-top: 25px; letter-spacing: 8px;">PHOTOGRAPHY</h1></div>
+    <div>
+      <h1 style="padding-top: 5px; letter-spacing: 8px; display: inline-block; ">PHOTOGRAPHY</h1>
+
+      <div style="float: right; padding-top: 5px; display: inline-block;" >
+        <div style="    float: left;" id="btn-expand-gallery" (click)="expandGallery()">
+          
+        </div>
+        <div id="nav-icon3" [ngClass]="[menuToggleState]" (click)="toggleNav($event)" style="float: right;">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
   </div>
-  <section class="content">
+  <section class="content" style="margin-top: 35px;" [hidden]="galleryActive">
     <div>
       
     </div>
     <div class="sub-content-item" >
         <div class="grid-container inline-block">
-            <div *ngFor="let image of images">
-              <a href="#" class="category">
-                <img class="grid-element" src="{{image.url}}"/>
-              </a>
+            <div *ngFor="let image of images | paginate: { itemsPerPage: 200, currentPage: p }; let i = index">
+              <div class="category"  (click)="open(i)">
+                <img class="grid-element" src="{{image.src}}"/>
+              </div>
          <!--   <a href="#" class="category grid-element">
             </a>
             <a href="#" class="category grid-element">
@@ -55,5 +72,38 @@
       </div>
     </div>
   </section>
+    <pagination-controls style="display: none;" (pageChange)="p = $event"></pagination-controls>
 
 </section>
+
+<div id="myNav" class="overlay" [ngStyle]="{'height': menuActive === true ? '100%' : '0%' }">
+
+  <!-- Button to close the overlay navigation
+  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>  -->
+
+  <!-- Overlay content -->
+  <div class="overlay-content">
+    <a href="#">HOME</a>
+    <a href="#">PROJECTS</a>
+    <a href="#">DESIGN</a>
+    <a href="#">PHOTOGRAHY</a>
+  </div>
+
+</div>
+
+
+<div id="myNav" class="overlay-gallery" [ngStyle]="{'height': galleryActive === true ? '100%' : '0%' }">
+  <div class="overlay-gallery-content">
+     <div class="overlay-gallery-image">
+
+        <img [src]="image.src"/>
+
+  </div>
+     <div class="controls">
+        <span (click)="previousImage()">Previous</span>
+        <span (click)="nextImage()">Next</span>
+
+     </div>
+  </div>
+
+</div>
