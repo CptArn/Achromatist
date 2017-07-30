@@ -215,7 +215,7 @@ section {
 #nav-icon1 span, #nav-icon3 span, #nav-icon4 span {
   display: block;
   position: absolute;
-  height: 3px;
+  height: 2px;
   width: 80%;
   background: black;
   border-radius: 9px;
@@ -281,6 +281,49 @@ section {
     margin-right: 30px;
     cursor: pointer;
 }
+
+#btn-full-gallery {
+    margin-top: 14px;
+    margin-right: 5px;
+    cursor: pointer;
+    width: 22px;
+}
+
+#btn-full-gallery rect {
+    stroke: gray;
+}
+
+#btn-full-gallery.active rect {
+    stroke: black;
+}
+
+#btn-full-gallery:hover rect {
+    stroke: black;
+}
+
+
+
+#btn-detail-gallery {
+    margin-top: 14px;
+    margin-right: 20px;
+    width: 21px;
+    cursor: pointer;
+}
+
+#btn-detail-gallery rect {
+    stroke: gray;
+}
+
+#btn-detail-gallery.active rect {
+    stroke: black;
+}
+
+#btn-detail-gallery:hover rect {
+    stroke: black;
+}
+
+
+
 
 /* CUSTOM LIGHTBOX CSS */
 .lb-nav a.lb-next {

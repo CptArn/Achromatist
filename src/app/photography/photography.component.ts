@@ -34,6 +34,8 @@ export class PhotographyComponent implements OnInit {
 
   public imageIndex: number = 0;
 
+  public fullGalleryClass: string = 'active';
+  public detailGalleryClass: string = (this.fullGalleryClass === 'active' ? '' : 'active');
 
   constructor(private lightbox: Lightbox, private pagination: NgxPaginationModule, private renderer: Renderer) {
    }
@@ -52,6 +54,20 @@ export class PhotographyComponent implements OnInit {
      setTimeout(function() {
         that.my_Class = 'checked';
     }, 100);
+  }
+
+  toggleGallery(mode: string) {
+      if(mode === 'full') {
+        this.fullGalleryClass = 'active';
+        this.detailGalleryClass = '';
+        this.galleryActive = false;
+
+      } else {
+        this.fullGalleryClass = '';
+        this.detailGalleryClass = 'active';
+        this.galleryActive = true;
+        this.image = this.images[this.imageIndex];
+      }
   }
 
  /* open(index: number):void {
@@ -75,17 +91,18 @@ export class PhotographyComponent implements OnInit {
     this.menuActive = false;
   }
 
-  expandGallery() {
-    console.log('gallery');
-    
+  expandGallery() {    
     this.galleryActive = !this.galleryActive;
     this.image = this.images[this.imageIndex];
   }
 
-  open(index: number):void {
-    this.galleryActive = true;
-    this.image = this.images[index];
 
+
+  open(index: number):void {
+    //this.galleryActive = true;
+    this.toggleGallery('detail');
+    this.imageIndex = index;
+    this.image = this.images[this.imageIndex];
   }
 
   nextImage() {
