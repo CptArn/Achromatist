@@ -15,13 +15,12 @@ export class HomeComponent implements OnInit {
   navHide: boolean = true;
 
 
-  constructor(@Inject(DOCUMENT) private document: Document) { 
-   this.images = ["../assets/logo.png", "../assets/BG.png"];
-
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    this.images = ['../assets/logo.png', '../assets/BG.png'];
   }
 
   ngOnInit() {
-    
+
   }
 
 
